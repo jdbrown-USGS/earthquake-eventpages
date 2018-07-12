@@ -109,9 +109,6 @@ node {
               ng lint
             """
             sh """
-              ng test --watch=false --code-coverage --progress false
-            """
-            sh """
               npm run e2e
             """
           }
