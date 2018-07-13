@@ -103,12 +103,16 @@ node {
       docker.image(TESTER_IMAGE).inside () {
           ansiColor('xterm') {
             sh """
+              ps
+            """
+            sh """
               npm install --no-save
             """
             sh """
               ng lint
             """
             sh """
+              ps
               ng test --watch=false --code-coverage --progress false
             """
             sh """

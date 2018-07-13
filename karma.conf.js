@@ -22,12 +22,24 @@ module.exports = function (config) {
     angularCli: {
       environment: 'dev'
     },
+    customLaunchers: {
+      ChromeHeadless:  {
+        base: 'Chrome',
+        flags:  [
+          '--headless',
+          '--disable-gpu',
+          '--no-sandbox',
+          '--remote-debugging-port=9222'
+        ],
+      }
+    },
+    browserNoActivityTimeout: 70000,
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['ChromeHeadless'],
     singleRun: false
   });
 };
